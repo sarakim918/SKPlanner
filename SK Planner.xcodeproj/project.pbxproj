@@ -72,8 +72,10 @@
 			children = (
 				E5186D5729E756AB006E50EC /* SK_PlannerApp.swift */,
 				E5186D5929E756AB006E50EC /* ContentView.swift */,
-				E5186D6729E8B857006E50EC /* Not yet sure where to put this */,
+				E5186D6829E8B89D006E50EC /* ListMenuCommands.swift */,
 				E5186D6629E75720006E50EC /* Views */,
+				E5186D8129E8EADC006E50EC /* View Models */,
+				E5186D8029E8EAAA006E50EC /* Data Models */,
 				E5186D5B29E756AD006E50EC /* Assets.xcassets */,
 				E5186D6029E756AD006E50EC /* SK_Planner.entitlements */,
 				E5186D5D29E756AD006E50EC /* Preview Content */,
@@ -98,17 +100,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		E5186D6729E8B857006E50EC /* Not yet sure where to put this */ = {
-			isa = PBXGroup;
-			children = (
-				E5186D6829E8B89D006E50EC /* ListMenuCommands.swift */,
-				E5186D7629E8D2D7006E50EC /* TaskList.swift */,
-				E5186D7829E8D30E006E50EC /* Task.swift */,
-				E5186D7C29E8D549006E50EC /* ViewModel.swift */,
-			);
-			path = "Not yet sure where to put this";
-			sourceTree = "<group>";
-		};
 		E5186D6E29E8C2EF006E50EC /* ListsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +117,23 @@
 				E5186D7229E8C3DF006E50EC /* MonthView.swift */,
 			);
 			path = CalendarView;
+			sourceTree = "<group>";
+		};
+		E5186D8029E8EAAA006E50EC /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				E5186D7629E8D2D7006E50EC /* TaskList.swift */,
+				E5186D7829E8D30E006E50EC /* Task.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		E5186D8129E8EADC006E50EC /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				E5186D7C29E8D549006E50EC /* ViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
