@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var viewModel = ViewModel()
     
+    // comment for testing
     var body: some View {
         VStack {
             ListsView(viewModel: viewModel)
