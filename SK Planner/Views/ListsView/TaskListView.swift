@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TaskListView: View {
-    var taskList: TaskList
+    @State var taskList: TaskList
     
     var body: some View {
         Text(taskList.title)
@@ -17,14 +17,17 @@ struct TaskListView: View {
                 Text(task.name)
                 //TextField("", text: task.name)
             }
-//            .onMove { indices, destination in
-//                taskList.tasks.move(fromOffsets: indices,
-//                        toOffset: destination)
-//            }
+            .onMove { indices, destination in
+                taskList.tasks.move(fromOffsets: indices,
+                        toOffset: destination)
+            }
         }
     }
 }
 
+extension Array {
+    
+}
 //struct TaskListView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        TaskListView()
