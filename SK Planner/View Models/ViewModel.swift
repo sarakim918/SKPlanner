@@ -11,7 +11,7 @@ class ViewModel: ObservableObject {
     var taskLists: [TaskList] = []
     var date: Date {
         didSet {
-            print("WHORE")
+            print("date set in ViewModel")
         }
     }
     
