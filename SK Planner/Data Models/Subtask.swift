@@ -8,7 +8,7 @@
 import Foundation
 
 struct Subtask: Identifiable {
-    let id = Task.ID()
+    let id = Subtask.ID()
     var name: String
     
     struct ID: Hashable, Identifiable {

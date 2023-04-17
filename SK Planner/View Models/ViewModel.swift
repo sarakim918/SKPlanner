@@ -20,7 +20,7 @@ class ViewModel: ObservableObject {
             let rand = Int.random(in: 1..<8)
             var tasks: [Task] = []
             for i in 0..<rand {
-                let tempTask = Task(name: "Task "+String(i+1))
+                let tempTask = Task(name: "Task "+String(i+1), dueDate: Date.now, subtasks: [])
                 tasks.append(tempTask)
             }
             let tempTaskList = TaskList(title: "List "+String(j+1), tasks: tasks)
