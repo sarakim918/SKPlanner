@@ -15,7 +15,12 @@ struct TaskListView: View {
         List {
             ForEach (taskList.tasks) { task in
                 Text(task.name)
+                //TextField("", text: task.name)
             }
+//            .onMove { indices, destination in
+//                taskList.tasks.move(fromOffsets: indices,
+//                        toOffset: destination)
+//            }
         }
     }
 }

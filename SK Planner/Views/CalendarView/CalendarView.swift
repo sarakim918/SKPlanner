@@ -11,7 +11,7 @@ struct CalendarView: View {
     @ObservedObject var viewModel: ViewModel
     @State private var date: Date = .now {
         didSet {
-            print("Whore 2")
+            print("date was set in calendarView")
         }
     }
     

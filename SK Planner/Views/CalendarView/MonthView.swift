@@ -10,7 +10,7 @@ import SwiftUI
 struct MonthView: View {
     @State private var date: Date = .now {
         didSet {
-            print("Whore 2")
+            print("date was set in monthView")
         }
     }
     @State private var refresh = false
