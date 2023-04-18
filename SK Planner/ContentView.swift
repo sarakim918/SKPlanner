@@ -15,8 +15,10 @@ struct ContentView: View {
         VStack {
             ListsView(viewModel: viewModel)
                 .frame(minWidth: 600, minHeight: 200)
+                .preferredColorScheme(ColorScheme.light)
             CalendarView(viewModel: viewModel)
                 .frame(minWidth: 600, minHeight: 300)
+                .preferredColorScheme(ColorScheme.light)
         }
     }
 }

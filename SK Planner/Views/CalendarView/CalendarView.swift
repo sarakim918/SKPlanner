@@ -17,14 +17,7 @@ struct CalendarView: View {
     
     var body: some View {
         HSplitView {
-            VStack {
-                if (date == Date.now) {
-                    Text("TODAY")
-                } else {
-                    Text(date.formatted(.dateTime.weekday().day().month().year()))
-                }
-                
-            }
+            DayView(viewModel: viewModel, date: date)
                 .frame(minWidth: 200, minHeight: 300)
             DatePicker("Calendar", selection: $date,
                        displayedComponents: [.date])

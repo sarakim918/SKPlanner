@@ -14,8 +14,11 @@ struct TaskListView: View {
         Text(taskList.title)
         List {
             ForEach (taskList.tasks) { task in
-                Text(task.name + "     DUE: " + Date.now.formatted())
-                //TextField("", text: task.name)
+                HStack {
+                    Text(task.name)
+                    Divider()
+                    Text("Due " + task.dueDate.formatted(.dateTime.day().month()))
+                }
             }
             .onMove { indices, destination in
                 taskList.tasks.move(fromOffsets: indices,
@@ -25,9 +28,6 @@ struct TaskListView: View {
     }
 }
 
-extension Array {
-    
-}
 //struct TaskListView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        TaskListView()

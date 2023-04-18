@@ -19,6 +19,7 @@ struct ListsView: View {
                     } label: {
                         Text(taskList.title)
                     }
+                    .listRowBackground(taskList.color)
                 }
             }
             .toolbar {
@@ -27,8 +28,10 @@ struct ListsView: View {
                         Image(systemName: "sidebar.leading")
                     })
                 }
+                
             }
         }
+        .toolbarBackground(Color.gray, for: .windowToolbar)
     }
     
     func toggleSidebar() { NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)

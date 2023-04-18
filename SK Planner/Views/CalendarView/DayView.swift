@@ -9,11 +9,26 @@ import SwiftUI
 
 struct DayView: View {
     @ObservedObject var viewModel: ViewModel
+    var date: Date
     
     var body: some View {
         VStack {
-            Text("Date: " + viewModel.date.formatted())
-            Text("Today \n(default to today, \nshow the day that's highlighted on the calendar")
+            Text(date.formatted(.dateTime.weekday().day().month().year()))
+            List {
+                ForEach (viewModel.taskLists) { taskList in
+                    Text(taskList.title)
+                        .foregroundColor(taskList.color)
+                    ForEach(taskList.tasks) { task in
+                        if (task.dueDate.formatted(.dateTime.weekday().day().month().year()) == date.formatted(.dateTime.weekday().day().month().year())) {
+                            HStack {
+                                Divider()
+                                Text(task.name)
+                                    .foregroundColor(taskList.color)
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
