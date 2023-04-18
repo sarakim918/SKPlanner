@@ -16,7 +16,7 @@ struct ListsView: View {
                 List {
                     ForEach(viewModel.taskLists) { taskList in
                         NavigationLink {
-                            TaskListView(taskList: taskList)
+                            TaskListView(taskList: taskList, viewModel: viewModel)
                         } label: {
                             Text(taskList.title)
                         }
@@ -44,7 +44,7 @@ struct ListsView: View {
     }
     
     func addList() {
-        var temp: TaskList = TaskList(title: "Another List", tasks: [], color: viewModel.colors[viewModel.color_index])
+        let temp: TaskList = TaskList(title: "Another List", tasks: [], color: viewModel.colors[viewModel.color_index])
         viewModel.color_index += 1
         viewModel.taskLists.append(temp)
     }
