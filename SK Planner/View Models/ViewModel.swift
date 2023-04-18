@@ -9,8 +9,12 @@ import Foundation
 import SwiftUI
 
 class ViewModel: ObservableObject {
-    var taskLists: [TaskList] = []
-    var date: Date {
+    @Published var taskLists: [TaskList] = [] {
+        didSet {
+            print("Task Lists updated")
+        }
+    }
+    var date: Date = .now {
         didSet {
             print("date set in ViewModel")
         }
@@ -35,7 +39,6 @@ class ViewModel: ObservableObject {
             color_index+=1
             taskLists.append(tempTaskList)
         }
-        date = .now
     }
 }
 

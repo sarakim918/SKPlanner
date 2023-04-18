@@ -25,6 +25,15 @@ struct TaskListView: View {
                         toOffset: destination)
             }
         }
+        Button(action: addList, label: { // 1
+            Image(systemName: "plus.app")
+        })
+        .frame(maxHeight: 30)
+    }
+    
+    func addList() {
+        var temp: Task = Task(name: "Another Task", dueDate: Date.now, subtasks: [])
+        taskList.tasks.append(temp)
     }
 }
 
