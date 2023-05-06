@@ -78,6 +78,7 @@
 				E5186D6629E75720006E50EC /* Views */,
 				E5186D8129E8EADC006E50EC /* View Models */,
 				E5186D8029E8EAAA006E50EC /* Data Models */,
+				E5186D872A044CDA006E50EC /* Citation Resources */,
 				E5186D5B29E756AD006E50EC /* Assets.xcassets */,
 				E5186D6029E756AD006E50EC /* SK_Planner.entitlements */,
 				E5186D5D29E756AD006E50EC /* Preview Content */,
@@ -137,6 +138,13 @@
 				E5186D7C29E8D549006E50EC /* ViewModel.swift */,
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		E5186D872A044CDA006E50EC /* Citation Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Citation Resources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -22,7 +22,13 @@ class ViewModel: ObservableObject {
     
     
     let colors: [Color] = [Color.pink, Color.red, Color.orange, Color.yellow, Color.green, Color.cyan, Color.blue, Color.indigo, Color.purple, Color.brown]
-    var color_index = 0;
+    var color_index = 0 {
+        didSet {
+            if color_index >= colors.count {
+                color_index = 0
+            }
+        }
+    }
     
     let dates: [Date] = [Date.now.addingTimeInterval(86400), Date.now, Date.now.addingTimeInterval(-86400)]
     
