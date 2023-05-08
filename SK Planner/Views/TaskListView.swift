@@ -35,10 +35,12 @@ struct TaskListView: View {
                             editListNeeded = true
                         }, label: { // 1
                             Text("Edit")
-                                .foregroundColor(Color.green)
+                                .foregroundColor(Color.black)
+                                .bold()
                         })
                         .frame(maxHeight: 30)
                     }
+                    .foregroundColor(viewModel.taskLists[taskListIndex].color)
                     List {
                         ForEach (viewModel.taskLists[taskListIndex].tasks) { task in
                             HStack {
@@ -54,7 +56,8 @@ struct TaskListView: View {
                                     taskForEditID = task.id
                                 }, label: { // 1
                                     Text("Edit")
-                                        .foregroundColor(Color.green)
+                                        .foregroundColor(Color.black)
+                                        .bold()
                                 })
                                 .frame(maxHeight: 30)
                             }
