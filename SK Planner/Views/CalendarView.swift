@@ -172,8 +172,6 @@ struct CalendarView: View {
         var days: [[Day]] = []
         var row: [Day] = []
         
-        print(firstDayOfMonth)
-        
         for i in 0..<42 {
             if (i < offset) {
                 row.append(Day(number: 0, date: firstDayOfMonth))

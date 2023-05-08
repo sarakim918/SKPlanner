@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewModel = ViewModel() {
-        didSet {
-            print("changed in ContentView")
-        }
-    }
+    @StateObject var viewModel = ViewModel() 
     
     // comment for testing
     var body: some View {

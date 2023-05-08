@@ -10,11 +10,7 @@ import SwiftUI
 
 class ViewModel: ObservableObject {
     @Published var editMenuNeeded = false
-    @Published var taskLists: [TaskList] = [] {
-        didSet {
-            print("Changes made")
-        }
-    }
+    @Published var taskLists: [TaskList] = [] 
     var date: Date = .now
     
     

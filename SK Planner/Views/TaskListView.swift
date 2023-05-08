@@ -9,11 +9,7 @@ import SwiftUI
 
 struct TaskListView: View {
     @State var taskListId: TaskList.ID?
-    @ObservedObject var viewModel: ViewModel {
-        didSet {
-            print("changed in TaskListView")
-        }
-    }
+    @ObservedObject var viewModel: ViewModel 
     @State var editListNeeded: Bool = true
     var listForEditID: TaskList.ID {
         viewModel.taskLists[taskListIndex].id

@@ -33,26 +33,28 @@ struct CheckableTask: View {
     
     
     var body: some View {
-        HStack {
-            Button(action: {
-                if (viewModel.taskLists[listIndex].tasks[taskIndex].completed) {
-                    viewModel.taskLists[listIndex].tasks[taskIndex].completed = false
-                } else {
-                    viewModel.taskLists[listIndex].tasks[taskIndex].completed = true
-                }
-            }, label: {
-                if (viewModel.taskLists[listIndex].tasks[taskIndex].completed) {
-                    Image(systemName: "checkmark.square.fill")
-                        .font(.system(size: 12))
-                } else {
-                    Image(systemName: "square")
-                        .font(.system(size: 12))
-                }
-            })
-            .buttonStyle(PlainButtonStyle())
-            Text(viewModel.taskLists[listIndex].tasks[taskIndex].name)
-                .foregroundColor(viewModel.taskLists[listIndex].tasks[taskIndex].completed ? .gray : .black)
-                .strikethrough(viewModel.taskLists[listIndex].tasks[taskIndex].completed, color: .gray)
+        if (taskIndex != -1) {
+            HStack {
+                Button(action: {
+                    if (viewModel.taskLists[listIndex].tasks[taskIndex].completed) {
+                        viewModel.taskLists[listIndex].tasks[taskIndex].completed = false
+                    } else {
+                        viewModel.taskLists[listIndex].tasks[taskIndex].completed = true
+                    }
+                }, label: {
+                    if (viewModel.taskLists[listIndex].tasks[taskIndex].completed) {
+                        Image(systemName: "checkmark.square.fill")
+                            .font(.system(size: 12))
+                    } else {
+                        Image(systemName: "square")
+                            .font(.system(size: 12))
+                    }
+                })
+                .buttonStyle(PlainButtonStyle())
+                Text(viewModel.taskLists[listIndex].tasks[taskIndex].name)
+                    .foregroundColor(viewModel.taskLists[listIndex].tasks[taskIndex].completed ? .gray : .black)
+                    .strikethrough(viewModel.taskLists[listIndex].tasks[taskIndex].completed, color: .gray)
+            }
         }
     }
 }

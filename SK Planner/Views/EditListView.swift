@@ -61,7 +61,6 @@ struct EditListView: View {
                     viewModel.editMenuNeeded = false
                 }, label: {
                     Text("Save")
-                        .foregroundColor(.green)
                 })
                 Spacer()
                     .frame(width: 20)
