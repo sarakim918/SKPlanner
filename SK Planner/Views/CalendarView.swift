@@ -7,12 +7,9 @@
 
 import SwiftUI
 
-/*
- CITATION: [1]
- https://developer.apple.com/documentation/foundation/calendar
+/* CITATION: Calendar Documentation [1]
+ Used to help me with the calendar data type (figuring out what functions and properties it had, etc), applies to the whole file
  */
-
-
 struct CalendarView: View {
     
     @ObservedObject var viewModel: ViewModel
@@ -83,11 +80,9 @@ struct CalendarView: View {
                 }
                 
                 // fill weeks with days
-                /*
-                 CITATION: [4]
-                 https://www.hackingwithswift.com/quick-start/swiftui/how-to-fix-initializer-init-rowcontent-requires-that-sometype-conform-to-identifiable
-                 added the id: \.self to fix identifiable issue
-                 */
+                /* CITATION: Identifiable Issue [2]
+                 added the "id: \.self" to fix identifiable issue
+                */
                 ForEach(getDayMatrix(), id: \.self) { week in
                     HStack(spacing: 10) {
                         ForEach(week, id: \.self) { day in
@@ -96,9 +91,8 @@ struct CalendarView: View {
                             }) {
                                 ZStack {
                                     /*
-                                     CITATION: [5]
-                                     https://stackoverflow.com/questions/24577087/comparing-nsdates-without-time-component
-                                     compare dates without time component (was giving me a bug)
+                                     CITATION: Remove Time component from Date [3]
+                                     How to compare dates without time component (was giving me a bug)
                                      */
                                     Circle()
                                         .foregroundColor((calendar.compare(day.date, to: selectedDate, toGranularity: .day) == .orderedSame && day.number != 0) ? .white : .clear)
