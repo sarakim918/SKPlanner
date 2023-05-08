@@ -8,19 +8,40 @@
 import SwiftUI
 
 struct CheckableTask: View {
-    @State var task: Task
+    @State var taskID: Task.ID
+    @ObservedObject var viewModel: ViewModel
+    var listIndex: Int {
+        for i in 0..<viewModel.taskLists.count {
+            for j in 0..<viewModel.taskLists[i].tasks.count {
+                if taskID == viewModel.taskLists[i].tasks[j].id {
+                    return i
+                }
+            }
+        }
+        return -1
+    }
+    var taskIndex: Int {
+        for i in 0..<viewModel.taskLists.count {
+            for j in 0..<viewModel.taskLists[i].tasks.count {
+                if taskID == viewModel.taskLists[i].tasks[j].id {
+                    return j
+                }
+            }
+        }
+        return -1
+    }
+    
     
     var body: some View {
         HStack {
-            Divider()
             Button(action: {
-                if (task.completed) {
-                    task.completed = false
+                if (viewModel.taskLists[listIndex].tasks[taskIndex].completed) {
+                    viewModel.taskLists[listIndex].tasks[taskIndex].completed = false
                 } else {
-                    task.completed = true
+                    viewModel.taskLists[listIndex].tasks[taskIndex].completed = true
                 }
             }, label: {
-                if (task.completed) {
+                if (viewModel.taskLists[listIndex].tasks[taskIndex].completed) {
                     Image(systemName: "checkmark.square.fill")
                         .font(.system(size: 12))
                 } else {
@@ -29,9 +50,9 @@ struct CheckableTask: View {
                 }
             })
             .buttonStyle(PlainButtonStyle())
-            Text(task.name)
-                .foregroundColor(task.completed ? .gray : .black)
-                .strikethrough(task.completed, color: .gray)
+            Text(viewModel.taskLists[listIndex].tasks[taskIndex].name)
+                .foregroundColor(viewModel.taskLists[listIndex].tasks[taskIndex].completed ? .gray : .black)
+                .strikethrough(viewModel.taskLists[listIndex].tasks[taskIndex].completed, color: .gray)
         }
     }
 }

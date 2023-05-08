@@ -11,8 +11,11 @@ struct Task: Identifiable {
     let id = Task.ID()
     var name: String
     var dueDate: Date
-    var subtasks: [Subtask]
-    var completed: Bool = false
+    var completed: Bool = false {
+        didSet {
+            print("completed set to: \(String(completed))")
+        }
+    }
     
     struct ID: Hashable, Identifiable {
         let id = UUID()

@@ -16,11 +16,16 @@ struct ListsView: View {
                 List {
                     ForEach(viewModel.taskLists) { taskList in
                         NavigationLink {
-                            TaskListView(taskList: taskList, viewModel: viewModel)
+                            TaskListView(taskListId: taskList.id, viewModel: viewModel)
+                                .frame(minWidth: 600)
                         } label: {
                             Text(taskList.title)
                         }
                         .listRowBackground(taskList.color)
+                    }
+                    .onMove { indices, destination in
+                        viewModel.taskLists.move(fromOffsets: indices,
+                                            toOffset: destination)
                     }
                 }
                 .toolbar {
@@ -31,12 +36,15 @@ struct ListsView: View {
                     }
                 }
                 Button(action: addList, label: { // 1
-                    Image(systemName: "plus.app")
+                    Image(systemName: "plus")
                 })
                 .frame(maxHeight: 30)
             }
         }
         .toolbarBackground(Color.gray, for: .windowToolbar)
+        .onTapGesture {
+            viewModel.editMenuNeeded = false
+        }
         
     }
     
@@ -44,7 +52,7 @@ struct ListsView: View {
     }
     
     func addList() {
-        let temp: TaskList = TaskList(title: "Another List", tasks: [], color: viewModel.colors[viewModel.color_index])
+        let temp: TaskList = TaskList(title: "NEW List", tasks: [], color: viewModel.colors[viewModel.color_index])
         viewModel.color_index += 1
         viewModel.taskLists.append(temp)
     }

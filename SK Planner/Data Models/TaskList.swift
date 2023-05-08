@@ -13,7 +13,7 @@ struct TaskList: Identifiable {
     
     var title: String
     var tasks: [Task]
-    let color: Color
+    var color: Color
     
     struct ID: Hashable, Identifiable {
         let id = UUID()

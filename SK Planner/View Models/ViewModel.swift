@@ -9,19 +9,17 @@ import Foundation
 import SwiftUI
 
 class ViewModel: ObservableObject {
+    @Published var editMenuNeeded = false
     @Published var taskLists: [TaskList] = [] {
         didSet {
-            print("Task Lists updated")
+            print("Changes made")
         }
     }
-    var date: Date = .now {
-        didSet {
-            print("date set in ViewModel")
-        }
-    }
+    var date: Date = .now
     
     
     let colors: [Color] = [Color.pink, Color.red, Color.orange, Color.yellow, Color.green, Color.cyan, Color.blue, Color.indigo, Color.purple, Color.brown]
+    let color_names: [String] = ["Pink", "Red", "Orange", "Yellow", "Green", "Cyan", "Blue", "Indigo", "Purple", "Brown"]
     var color_index = 0 {
         didSet {
             if color_index >= colors.count {
@@ -30,22 +28,42 @@ class ViewModel: ObservableObject {
         }
     }
     
-    let dates: [Date] = [Date.now.addingTimeInterval(86400), Date.now, Date.now.addingTimeInterval(-86400)]
-    
-    
-    init() {
-        for j in 0..<4 {
-            let rand = Int.random(in: 1..<8)
-            var tasks: [Task] = []
-            for i in 0..<rand {
-                let tempTask = Task(name: "Task "+String(i+1), dueDate: dates[Int.random(in: 1..<3)], subtasks: [])
-                tasks.append(tempTask)
-            }
-            let tempTaskList = TaskList(title: "List "+String(j+1), tasks: tasks, color: colors[color_index])
-            color_index+=1
-            taskLists.append(tempTaskList)
+    func getColorString (color: Color) -> String {
+        switch (color) {
+        case .pink:
+            return "Pink"
+        case .red:
+            return "Red"
+        case .orange:
+            return "Orange"
+        case .yellow:
+            return "Yellow"
+        case .green:
+            return "Green"
+        case .cyan:
+            return "Cyan"
+        case .blue:
+            return "Blue"
+        case .indigo:
+            return "Indigo"
+        case .purple:
+            return "Purple"
+        case .brown:
+            return "Brown"
+        default:
+            return ""
         }
     }
 }
 
+
+extension Color: Identifiable {
+    public var id: Color.ID {
+        return Color.ID()
+    }
+        
+    public struct ID: Hashable, Identifiable {
+        public let id = UUID()
+    }
+}
 

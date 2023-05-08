@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewModel = ViewModel()
+    @StateObject var viewModel = ViewModel() {
+        didSet {
+            print("changed in ContentView")
+        }
+    }
     
     // comment for testing
     var body: some View {
         VStack {
             ListsView(viewModel: viewModel)
-                .frame(minWidth: 600, minHeight: 200)
+                .frame(minWidth: 800, minHeight: 300)
                 .preferredColorScheme(ColorScheme.light)
+            Divider()
+                .padding(.horizontal, -8)
+                .padding(.vertical, -8)
             CalendarView(viewModel: viewModel)
                 .frame(minWidth: 600, minHeight: 300)
                 .preferredColorScheme(ColorScheme.light)

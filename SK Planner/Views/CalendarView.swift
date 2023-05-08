@@ -64,6 +64,8 @@ struct CalendarView: View {
             .padding(.top, 20)
             
             Divider()
+                .padding(.horizontal, -8)
+                .padding(.vertical, -8)
             
             // calendar grid
             VStack(spacing: 5) {
@@ -112,9 +114,9 @@ struct CalendarView: View {
                     }
                 }
             }
-            .padding(.top, 20)
-            .padding(.bottom, 20)
-            .padding(.horizontal, 20)
+            .padding(.top, 5)
+            .padding(.bottom, 10)
+            .padding(.horizontal, 10)
         }
     }
 
@@ -238,7 +240,7 @@ struct CalendarView: View {
                                 .foregroundColor(taskList.color)
                             ForEach(taskList.tasks) { task in
                                 if (task.dueDate.formatted(.dateTime.weekday().day().month().year()) == selectedDate.formatted(.dateTime.weekday().day().month().year())) {
-                                    CheckableTask(task: task)
+                                    CheckableTask(taskID: task.id, viewModel: viewModel)
                                 }
                             }
                         }
