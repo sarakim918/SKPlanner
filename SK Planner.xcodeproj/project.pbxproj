@@ -13,14 +13,13 @@
 		E5186D6929E8B89D006E50EC /* ListMenuCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5186D6829E8B89D006E50EC /* ListMenuCommands.swift */; };
 		E5186D6B29E8BE84006E50EC /* ListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5186D6A29E8BE84006E50EC /* ListsView.swift */; };
 		E5186D6D29E8BF00006E50EC /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5186D6C29E8BF00006E50EC /* CalendarView.swift */; };
-		E5186D7129E8C3AC006E50EC /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5186D7029E8C3AC006E50EC /* DayView.swift */; };
-		E5186D7329E8C3DF006E50EC /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5186D7229E8C3DF006E50EC /* MonthView.swift */; };
 		E5186D7729E8D2D7006E50EC /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5186D7629E8D2D7006E50EC /* TaskList.swift */; };
 		E5186D7929E8D30E006E50EC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5186D7829E8D30E006E50EC /* Task.swift */; };
 		E5186D7B29E8D35F006E50EC /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5186D7A29E8D35F006E50EC /* TaskListView.swift */; };
 		E5186D7D29E8D549006E50EC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5186D7C29E8D549006E50EC /* ViewModel.swift */; };
 		E5186D8229EDD892006E50EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5186D5B29E756AD006E50EC /* Assets.xcassets */; };
 		E5186D8429EDE5F5006E50EC /* Subtask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5186D8329EDE5F5006E50EC /* Subtask.swift */; };
+		E5186D892A088CA0006E50EC /* CheckableTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5186D882A088CA0006E50EC /* CheckableTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,13 +32,12 @@
 		E5186D6829E8B89D006E50EC /* ListMenuCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMenuCommands.swift; sourceTree = "<group>"; };
 		E5186D6A29E8BE84006E50EC /* ListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsView.swift; sourceTree = "<group>"; };
 		E5186D6C29E8BF00006E50EC /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		E5186D7029E8C3AC006E50EC /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
-		E5186D7229E8C3DF006E50EC /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
 		E5186D7629E8D2D7006E50EC /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
 		E5186D7829E8D30E006E50EC /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		E5186D7A29E8D35F006E50EC /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		E5186D7C29E8D549006E50EC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		E5186D8329EDE5F5006E50EC /* Subtask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subtask.swift; sourceTree = "<group>"; };
+		E5186D882A088CA0006E50EC /* CheckableTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckableTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,29 +95,12 @@
 		E5186D6629E75720006E50EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E5186D6E29E8C2EF006E50EC /* ListsView */,
-				E5186D6F29E8C2F7006E50EC /* CalendarView */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		E5186D6E29E8C2EF006E50EC /* ListsView */ = {
-			isa = PBXGroup;
-			children = (
+				E5186D6C29E8BF00006E50EC /* CalendarView.swift */,
 				E5186D6A29E8BE84006E50EC /* ListsView.swift */,
 				E5186D7A29E8D35F006E50EC /* TaskListView.swift */,
+				E5186D882A088CA0006E50EC /* CheckableTask.swift */,
 			);
-			path = ListsView;
-			sourceTree = "<group>";
-		};
-		E5186D6F29E8C2F7006E50EC /* CalendarView */ = {
-			isa = PBXGroup;
-			children = (
-				E5186D6C29E8BF00006E50EC /* CalendarView.swift */,
-				E5186D7029E8C3AC006E50EC /* DayView.swift */,
-				E5186D7229E8C3DF006E50EC /* MonthView.swift */,
-			);
-			path = CalendarView;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E5186D8029E8EAAA006E50EC /* Data Models */ = {
@@ -218,9 +199,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5186D7729E8D2D7006E50EC /* TaskList.swift in Sources */,
+				E5186D892A088CA0006E50EC /* CheckableTask.swift in Sources */,
 				E5186D8429EDE5F5006E50EC /* Subtask.swift in Sources */,
 				E5186D6D29E8BF00006E50EC /* CalendarView.swift in Sources */,
-				E5186D7129E8C3AC006E50EC /* DayView.swift in Sources */,
 				E5186D7D29E8D549006E50EC /* ViewModel.swift in Sources */,
 				E5186D6B29E8BE84006E50EC /* ListsView.swift in Sources */,
 				E5186D5A29E756AB006E50EC /* ContentView.swift in Sources */,
@@ -228,7 +209,6 @@
 				E5186D5829E756AB006E50EC /* SK_PlannerApp.swift in Sources */,
 				E5186D7B29E8D35F006E50EC /* TaskListView.swift in Sources */,
 				E5186D7929E8D30E006E50EC /* Task.swift in Sources */,
-				E5186D7329E8C3DF006E50EC /* MonthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@ struct Task: Identifiable {
     var name: String
     var dueDate: Date
     var subtasks: [Subtask]
+    var completed: Bool = false
     
     struct ID: Hashable, Identifiable {
         let id = UUID()
