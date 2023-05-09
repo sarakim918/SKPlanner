@@ -70,11 +70,11 @@ class ViewModel: ObservableObject {
             guard let data = try? Data(contentsOf: fileURL) else {
                 return []
             }
-            let dailyScrums = try JSONDecoder().decode([TaskList].self, from: data)
-            return dailyScrums
+            let taskLists = try JSONDecoder().decode([TaskList].self, from: data)
+            return taskLists
         }
-        let scrums = try await task.value
-        self.taskLists = scrums
+        let lists = try await task.value
+        self.taskLists = lists
     }
     
     func save(taskLists: [TaskList]) async throws {
