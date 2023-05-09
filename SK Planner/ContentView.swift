@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewModel = ViewModel() 
+    @ObservedObject var viewModel = ViewModel()
+    @Environment(\.scenePhase) private var scenePhase
+    let saveAction: ()->Void
     
     // comment for testing
     var body: some View {
@@ -23,11 +25,14 @@ struct ContentView: View {
                 .frame(minWidth: 600, minHeight: 300)
                 .preferredColorScheme(ColorScheme.light)
         }
+        .onChange(of: scenePhase) { phase in
+            if phase == .inactive { saveAction() }
+        }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

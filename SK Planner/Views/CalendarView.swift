@@ -256,7 +256,7 @@ struct CalendarView: View {
     }
     
     // returns boolean indicating if there are no tasks in a given list
-    private func tasksInTaskList(tasks: [Task]) -> Bool {
+    private func tasksInTaskList(tasks: [Task_local]) -> Bool {
         for task in tasks {
             if (task.dueDate.formatted(.dateTime.weekday().day().month().year()) == selectedDate.formatted(.dateTime.weekday().day().month().year())) {
                 return true

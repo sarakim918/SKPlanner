@@ -14,7 +14,7 @@ struct TaskListView: View {
     var listForEditID: TaskList.ID {
         viewModel.taskLists[taskListIndex].id
     }
-    @State var taskForEditID: Task.ID!
+    @State var taskForEditID: Task_local.ID!
     var taskListIndex: Int {
         for i in 0..<viewModel.taskLists.count {
             if taskListId == viewModel.taskLists[i].id {
@@ -92,7 +92,7 @@ struct TaskListView: View {
     }
     
     func addTask() {
-        let temp: Task = Task(name: "NEW Task", dueDate: Date.now)
+        let temp: Task_local = Task_local(name: "NEW Task", dueDate: Date.now)
         
         for i in 0..<viewModel.taskLists.count {
             if taskListId == viewModel.taskLists[i].id {
@@ -101,7 +101,7 @@ struct TaskListView: View {
         }
     }
     
-    private func getDateString (task: Task) -> String {
+    private func getDateString (task: Task_local) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, yyyy"
         return formatter.string(from: task.dueDate)

@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+@MainActor
 class ViewModel: ObservableObject {
     @Published var editMenuNeeded = false
     @Published var taskLists: [TaskList] = [] 
@@ -49,6 +50,40 @@ class ViewModel: ObservableObject {
         default:
             return ""
         }
+    }
+    
+    /*
+     CITATION: Persisting Data [4]
+     Trying to implement saving of app state
+     */
+    private static func fileURL() throws -> URL {
+        try FileManager.default.url(for: .documentDirectory,
+                                    in: .userDomainMask,
+                                    appropriateFor: nil,
+                                    create: false)
+        .appendingPathComponent("taskLists.data")
+    }
+    
+    func load() async throws {
+        let task = Task<[TaskList], Error> {
+            let fileURL = try Self.fileURL()
+            guard let data = try? Data(contentsOf: fileURL) else {
+                return []
+            }
+            let dailyScrums = try JSONDecoder().decode([TaskList].self, from: data)
+            return dailyScrums
+        }
+        let scrums = try await task.value
+        self.taskLists = scrums
+    }
+    
+    func save(taskLists: [TaskList]) async throws {
+        let task = Task {
+            let data = try JSONEncoder().encode(taskLists)
+            let outfile = try Self.fileURL()
+            try data.write(to: outfile)
+        }
+        _ = try await task.value
     }
 }
 

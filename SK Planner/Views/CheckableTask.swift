@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CheckableTask: View {
-    @State var taskID: Task.ID
+    @State var taskID: Task_local.ID
     @ObservedObject var viewModel: ViewModel
     var listIndex: Int {
         for i in 0..<viewModel.taskLists.count {
